@@ -8,9 +8,11 @@ headers = {
     'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY']
 }
 data = {
-    'model': 'gpt-3.5-turbo',
-    'messages': ['hello!'],
-    'temperature': 0,
+  "model": "gpt-3.5-turbo",
+  "messages": [
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Who won the world series in 2020?"},
+  ]
 }
 
 response = requests.post(url=url, headers=headers, json=data)
