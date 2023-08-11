@@ -1,14 +1,14 @@
-from langchain.chains import ConversationChain
-from langchain.llms import OpenAI
-from langchain.memory import ConversationBufferMemory
 import langchain
+from langchain.chains import LLMChain, SimpleSequentialChain, ConversationChain
+from langchain.chat_models import ChatOpenAI
+from langchain.memory import ConversationBufferMemory
 
 
 langchain.verbose = True
 
-llm = OpenAI(model_name="text-davinci-003", temperature=0)
+chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 conversation = ConversationChain(
-    llm=llm,
+    llm=chat,
     memory=ConversationBufferMemory()
 )
 
