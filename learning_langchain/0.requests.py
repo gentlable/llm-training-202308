@@ -2,14 +2,14 @@ import requests
 import os
 import json
 
-url = 'https://api.openai.com/v1/completions'
+url = 'https://api.openai.com/v1/chat/completions'
 headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY']
 }
 data = {
-    'model': 'text-davinci-003',
-    'prompt': 'hello!',
+    'model': 'gpt-3.5-turbo',
+    'messages': ['hello!'],
     'temperature': 0,
 }
 
