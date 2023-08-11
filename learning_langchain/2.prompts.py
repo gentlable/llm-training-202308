@@ -1,4 +1,4 @@
-from langchain.prompts import PromptTemplate
+from langchain.prompts import HumanMessagePromptTemplate
 
 
 template = """
@@ -7,10 +7,5 @@ template = """
 コマンド: {command}
 """
 
-prompt = PromptTemplate(
-    input_variables=["command"],
-    template=template,
-)
-
-result = prompt.format(command="echo")
-print(result)
+prompt = HumanMessagePromptTemplate.from_template(template)
+print(prompt.format(command="echo").content)
