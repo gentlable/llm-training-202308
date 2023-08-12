@@ -7,9 +7,9 @@ import langchain
 langchain.verbose = True
 
 chat = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
-tools = load_tools(["terminal"], llm=chat)
+tools = load_tools(["Search"], llm=chat)
 agent_executor = initialize_agent(
     tools, chat, agent="zero-shot-react-description")
 
-result = agent_executor.run("ターミナルのエンコードをutf-8に変更してから,現在のディレクトリにあるファイルの一覧を教えてください。")
+result = agent_executor.run("please search for a cat")
 print(result)
